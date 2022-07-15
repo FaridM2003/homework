@@ -1,0 +1,51 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+void inserccion_desordenada(int v[],int,int); // prototipo de función
+
+int main() // inicio de la función del princpial
+{
+  //Declaración de variables y
+  int v[8]={0}; // inicialización en 0
+  int n=0, len=0; // declaración múltiple
+
+  len=(sizeof(v)/sizeof(v[0]))-1;
+
+  //escritura de un arreglo
+  printf("¿Cuantos elementos deseas ingresar?");
+  scanf("%d",&n);
+  printf("\n");
+  n--; // decremento
+  for(int j=0; j<=n ;j++) // escritura inicial del arreglo
+  {
+      printf("Ingresa un numero entero: ");
+      scanf("%d",&v[j]);
+  }
+
+  inserccion_desordenada(v,n,len); //llamada función
+
+    return 0;
+}
+
+void inserccion_desordenada(int v[],int n,int len) //encabezado función
+{   bool espacio=true;
+    do{
+            if(n>len) {
+                printf("No hay espacio\n\n");
+                espacio=false;
+                }
+            else{
+            n=n+1;
+        printf("Que elemento deseas insertar?");
+        scanf("%d",&v[n]);
+            }
+
+        }while(espacio);
+
+
+
+    for(int i=0; i<=n ;i++) // lectura del arreglo
+    {
+        printf("v[%i]=%d \n",i,v[i]);
+    }
+}

@@ -1,0 +1,56 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+
+// prototipo de función
+void eliminacion_desordenada(int v[],int, int);
+
+int main() // inicio de la función del princpial
+{
+  //Declaración de variables y
+  int v[8]={0}; // inicialización en 0
+  int n=0, len=0; // declaración múltiple
+
+  len=(sizeof(v)/sizeof(v[0]))-1;
+
+  //escritura de un arreglo
+  printf("¿Cuantos elementos deseas ingresar?");
+  scanf("%d",&n);
+  printf("\n");
+  n--; // decremento
+  for(int j=0; j<=n ;j++) // escritura inicial del arreglo
+  {
+      printf("Ingresa un numero entero: ");
+      scanf("%d",&v[j]);
+  }
+
+  eliminacion_desordenada(v,n,len); //llamada función
+
+    return 0;
+}
+
+
+void eliminacion_desordenada(int v[],int n, int len){
+    int r,i;
+    printf("Pon el dato a eliminar:\n");
+    scanf("%d",&r);
+
+    for(i = 0; i < len && r != v[i]; i++);
+
+    if(i > n){
+        printf("No se encontró el valor buscado");
+    }else{
+
+        for(int k = i; k <(n-1); k++){
+        v[k] = v[k+1];
+        }
+        n--;
+    }
+
+    for(int i=0; i<=n ;i++) // lectura del arreglo
+    {
+        printf("v[%i]=%d \n",i,v[i]);
+    }
+
+
+}

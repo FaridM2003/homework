@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+#define LIM 100
+int main(void){
+   int V[LIM];
+   int I=1, N,X;
+   printf("Introduzca limite: ");
+   scanf("%d",&N);
+
+   for(int i=0;i<LIM;i++){
+    V[i]=rand()%200+1;
+   }
+
+   printf("Introduzca dato a borrar: ");
+   scanf("%d",&X);
+
+    while (I<=N && X!=V[I]){
+            I= I+1;
+    }
+    if(I>N){
+        printf("El Valor X no se encuentra en el arreglo");
+    getch();
+    }else{
+    for (int K=I;K<(N-1);K--){
+        V[K]= V[K-1];
+    }
+    N= N-1;
+    printf("El Valor X se borró del arreglo");
+    getch();
+    }
+    return 0;
+}
